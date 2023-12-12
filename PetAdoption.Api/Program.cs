@@ -42,3 +42,4 @@ static void ApplyDbMigrations(IServiceProvider serviceProvider)
     if (context.Database.GetPendingMigrations().Any())
         context.Database.Migrate();
 }
+

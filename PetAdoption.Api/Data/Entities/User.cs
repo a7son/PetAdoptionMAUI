@@ -14,11 +14,14 @@ namespace PetAdoption.Api.Data.Entities
         [Required, MaxLength(100)]
         public string Email { get; set; }
 
-        [Required, MaxLength(10)]
-        public string Salt { get; set; }
+        //[Required, MaxLength(10)]
+        //public string Salt { get; set; }
 
-        [Required, MaxLength(80)]
-        public string Hash { get; set; }
+        //[Required, MaxLength(80)]
+        //public string Hash { get; set; }
+        [Required, MaxLength(10)]
+        public string Password { get; set; }
+
 
     }
 }
