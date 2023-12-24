@@ -12,8 +12,8 @@ using PetAdoption.Api.Data;
 namespace PetAdoption.Api.Data.Migrations
 {
     [DbContext(typeof(PetContext))]
-    [Migration("20230923151949_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20231212092312_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,6 +73,50 @@ namespace PetAdoption.Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdoptionStatus = 0,
+                            Breed = "Dog - Golden Retriever",
+                            DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Buddy is a friendly and playful Golden Retriever, known for being great with kids and owner",
+                            Gender = 0,
+                            Image = "img_15.jpg",
+                            IsActive = false,
+                            Name = "Buddy",
+                            Price = 300.0,
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdoptionStatus = 0,
+                            Breed = "Cat - Siamese",
+                            DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Whiskers is an elegant Siamese",
+                            Gender = 0,
+                            Image = "img_2.jpg",
+                            IsActive = false,
+                            Name = "Whiskers",
+                            Price = 150.0,
+                            Views = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdoptionStatus = 0,
+                            Breed = "Dog - German Shepherd",
+                            DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Rocky is loyal and friendly",
+                            Gender = 0,
+                            Image = "img_20.jpg",
+                            IsActive = false,
+                            Name = "Rocky",
+                            Price = 400.0,
+                            Views = 0
+                        });
                 });
 
             modelBuilder.Entity("PetAdoption.Api.Data.Entities.User", b =>
@@ -88,17 +132,12 @@ namespace PetAdoption.Api.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Hash")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Salt")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");

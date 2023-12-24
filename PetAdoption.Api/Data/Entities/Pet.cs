@@ -14,7 +14,7 @@ namespace PetAdoption.Api.Data.Entities
         [Required, MaxLength(180)]
         public string Image { get; set; }
 
-        [MaxLength(50)]
+        [Required,MaxLength(50)]
         public string? Breed { get; set; }
 
         [Required]

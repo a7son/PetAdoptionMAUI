@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using PetAdoption.Api.Data;
 using PetAdoption.Api.Hubs;
+using PetAdoption.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(jwtoptions => jwtoptions.TokenValidationParameters = TokenService.GetTokenValidationParameters(builder.Configuration));
+
 builder.Services.AddDbContext<PetContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Pet")), ServiceLifetime.Transient);
+
+builder.Services.AddTransient<IAuthService,AuthService>()
+                .AddTransient<TokenService>()
+                .AddTransient<IPetService, PetService>()
+                .AddTransient<IUserPetService,UserPetService>();
+
 
 builder.Services.AddSignalR();
 
@@ -26,7 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

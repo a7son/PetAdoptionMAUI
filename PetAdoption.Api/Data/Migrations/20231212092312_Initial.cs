@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace PetAdoption.Api.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -41,8 +43,7 @@ namespace PetAdoption.Api.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Salt = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Hash = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false)
+                    Password = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,6 +99,16 @@ namespace PetAdoption.Api.Data.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Pets",
+                columns: new[] { "Id", "AdoptionStatus", "Breed", "DateOfBirth", "Description", "Gender", "Image", "IsActive", "Name", "Price", "Views" },
+                values: new object[,]
+                {
+                    { 1, 0, "Dog - Golden Retriever", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Buddy is a friendly and playful Golden Retriever, known for being great with kids and owner", 0, "img_15.jpg", false, "Buddy", 300.0, 0 },
+                    { 2, 0, "Cat - Siamese", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Whiskers is an elegant Siamese", 0, "img_2.jpg", false, "Whiskers", 150.0, 0 },
+                    { 3, 0, "Dog - German Shepherd", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Rocky is loyal and friendly", 0, "img_20.jpg", false, "Rocky", 400.0, 0 }
                 });
 
             migrationBuilder.CreateIndex(

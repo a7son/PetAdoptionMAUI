@@ -1,0 +1,17 @@
+﻿@PetAdoption.Api_HostAddress = https://localhost:7046
+
+POST {{PetAdoption.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  {
+  "email": "asep.sonjaya@example.com",
+  "password": "12345"
+  }
+}
+
+###
+
+GET {{PetAdoption.Api_HostAddress}}/api/pets
+
+###

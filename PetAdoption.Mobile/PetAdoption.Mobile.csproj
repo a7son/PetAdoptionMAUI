@@ -40,6 +40,10 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+		<MauiImage Update="Resources\Images\img_22.jpg">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</MauiImage>
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -53,6 +57,7 @@
 	  <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
 	  <None Remove="Resources\Images\heart.svg" />
 	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\img_22.jpg" />
 	  <None Remove="Resources\Images\left_arrow.svg" />
 	  <None Remove="Resources\Images\list.svg" />
 	  <None Remove="Resources\Images\right_arrow.svg" />
@@ -71,10 +76,15 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
+	  <Folder Include="Models\" />
+	  <Folder Include="Controls\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\AdoptionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AllPetsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

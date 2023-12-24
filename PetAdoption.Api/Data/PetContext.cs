@@ -45,15 +45,16 @@ namespace PetAdoption.Api.Data
                     Name = "Buddy",
                     Breed = "Dog - Golden Retriever",
                     Price = 300,
-                    Description = "Buddy is a friendly and playful Golden Retriever, known for being great with kids and owner"
+                    Description = "Buddy is a friendly and playful Golden Retriever, known for being great with kids and owner",
+                    Image = "img_15.jpg"
                 },
                 new Pet
                 {
-                    Id = 2, Name = "Whiskers", Breed = "Cat - Siamese", Price = 150, Description = "Whiskers is an elegant Siamese"
+                    Id = 2, Name = "Whiskers", Breed = "Cat - Siamese", Price = 150, Description = "Whiskers is an elegant Siamese", Image = "img_2.jpg"
                 },
                 new Pet
                 {
-                    Id = 3, Name = "Rocky", Breed = "Dog - German Shepherd", Price = 400, Description = "Rocky is loyal and friendly"
+                    Id = 3, Name = "Rocky", Breed = "Dog - German Shepherd", Price = 400, Description = "Rocky is loyal and friendly", Image = "img_20.jpg"
                 }
             };
             return pets;
