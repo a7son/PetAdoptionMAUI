@@ -16,7 +16,7 @@ namespace PetAdoption.Mobile
 
             //Check if onboarding screen shown
             if (Preferences.Default.ContainsKey(UIConstants.OnboardingShown))
-                await Shell.Current.GoToAsync($"//{nameof(LoginRegisterPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
             else 
                 await Shell.Current.GoToAsync($"//{nameof(OnboardingPage)}");
 

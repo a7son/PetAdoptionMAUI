@@ -37,13 +37,10 @@
                     HorizontalTextAlignment="Center"
                     Text="Find your new best friend at our store! We have a wide range of selected lovable and cute pets, ready for adoption"/>
             </VerticalStackLayout>
-            <Button Grid.Row="1"
-                    Padding="0, 15"
-                    CornerRadius="12"
-                    FontAttributes="Bold"
-                    FontSize="20"
+            <Button Grid.Row="1"                    
                     Text="Explore" 
-                    Clicked="Button_Clicked"/>
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource btnPrimary}"/>
         </Grid>
     </Grid>
 </ContentPage>
