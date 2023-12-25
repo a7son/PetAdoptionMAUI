@@ -6,7 +6,7 @@ namespace PetAdoption.Mobile.Services
     [Headers("Authorization: Bearer")]
     public interface IUserApi
     {
-        [Post("/api/user/adopt/{petId:int}")]
+        [Post("/api/user/adopt/{petId}")]
         Task<ApiResponse> AdoptPetAsync(int petId);
 
         [Get("/api/user/adoptions")]
@@ -15,7 +15,7 @@ namespace PetAdoption.Mobile.Services
         [Get("/api/user/favorites")]
         Task<Shared.Dtos.ApiResponse<PetListDto[]>> GetUserFavoritesAsync();
 
-        [Post("/api/user/favorites/{petId:int}")]
+        [Post("/api/user/favorites/{petId}")]
         Task<ApiResponse> ToggleFavoritesAsync(int petId);
     }
 }

@@ -7,16 +7,16 @@ namespace PetAdoption.Mobile.Services
     {
         [Get("/api/pets")]
         Task<Shared.Dtos.ApiResponse<PetListDto[]>> GetAllPetAsync();
-        [Get("/api/pets/new/{count:int}")]
+        [Get("/api/pets/new/{count}")]
         Task<Shared.Dtos.ApiResponse<PetListDto[]>> GetNewlyAddedPets(int count);
 
-        [Get("/api/pets/popular/{count:int}")]
+        [Get("/api/pets/popular/{count}")]
         Task<Shared.Dtos.ApiResponse<PetListDto[]>> GetPopularPetAsync(int count);
 
-        [Get("/api/pets/random/{count:int}")]
+        [Get("/api/pets/random/{count}")]
         Task<Shared.Dtos.ApiResponse<PetListDto[]>> GetRandomPetAsync(int count);
 
-        [Get("/api/pets/{petId:int}")]
+        [Get("/api/pets/{petId}")]
         Task<Shared.Dtos.ApiResponse<PetDetailDto>> GetPetDetailAsync(int petId);
     }
 }

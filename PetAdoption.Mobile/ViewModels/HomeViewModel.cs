@@ -14,6 +14,9 @@
         [ObservableProperty]
         private IEnumerable<PetListDto> _random = Enumerable.Empty<PetListDto>();
 
+        [ObservableProperty]
+        private string _userName = "Stranger";
+
         private bool _isInitialized;
         public async Task InitializeAsync()
         {
@@ -24,6 +27,7 @@
             IsBusy = true;
             try
             {
+                await Task.Delay(100);
                 var newlyAddedTask = _petsApi.GetNewlyAddedPets(5);
                 var popularPetsTask = _petsApi.GetPopularPetAsync(10);
                 var randomPetsTask = _petsApi.GetRandomPetAsync(6);
