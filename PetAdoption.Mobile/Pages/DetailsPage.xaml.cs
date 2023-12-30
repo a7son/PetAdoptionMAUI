@@ -2,8 +2,12 @@ namespace PetAdoption.Mobile.Pages;
 
 public partial class DetailsPage : ContentPage
 {
-	public DetailsPage()
+    private readonly DetailsViewModel _viewModel;
+
+    public DetailsPage(DetailsViewModel viewModel)
 	{
 		InitializeComponent();
-	}
+        _viewModel = viewModel;
+        BindingContext = _viewModel;
+    }
 }

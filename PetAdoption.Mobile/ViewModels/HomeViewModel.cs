@@ -47,5 +47,9 @@
                 IsBusy = false;
             }
         }
+
+        [RelayCommand]
+        private async Task GotoDetailsPage(int petId) => 
+            await GoToAsync($"{nameof(DetailsPage)}?{nameof(DetailsViewModel.PetId)}={petId}");
     }
 }

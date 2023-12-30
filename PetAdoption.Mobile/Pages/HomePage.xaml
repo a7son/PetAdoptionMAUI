@@ -25,6 +25,10 @@
                HorizontalOptions="Center"
                FontSize="16"
                TextColor="{StaticResource Primary}"/>
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=GotoDetailsPageCommand}"
+                                              CommandParameter="{Binding Id}"/>
+                    </VerticalStackLayout.GestureRecognizers>
                 </VerticalStackLayout>
             </DataTemplate>
         </ResourceDictionary>
@@ -42,6 +46,10 @@
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="dtos:PetListDto">
                             <Grid RowDefinitions="*, Auto, Auto" RowSpacing="8">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=GotoDetailsPageCommand}"
+                                                          CommandParameter="{Binding Id}"/>
+                                </Grid.GestureRecognizers>
                                 <Border 
                                     Grid.Row="0"
                                     HeightRequest="250"
